@@ -1,0 +1,48 @@
+====================================================================
+EXPERIMENT 3: BREADTH-FIRST SEARCH AND DEPTH-FIRST SEARCH
+====================================================================
+
+PART A: MAZE CONFIGURATION
+Grid dimensions : 23 x 35
+Total cells     : 805
+Open cells      : 381
+Blocked cells   : 424
+Start position  : (1, 1)
+Goal position   : (21, 33)
+Random seed     : 42
+
+PART B AND C: SEARCH RESULTS
+-----------------------------------------------------------------
+
+BFS
+Path found          : Yes
+Path length (edges) : 52
+Nodes expanded      : 122
+Nodes visited       : 122
+Maximum frontier    : 8
+Execution time      : 0.000167 seconds
+
+DFS
+Path found          : Yes
+Path length (edges) : 60
+Nodes expanded      : 91
+Nodes visited       : 104
+Maximum frontier    : 16
+Execution time      : 0.000125 seconds
+
+KEY COMPARISON
+BFS shortest-path property: BFS returns a shortest path when all moves have equal cost.
+DFS limitation: DFS does not guarantee a shortest path.
+
+GENERATED FIGURES
+ - fig1_bfs_dfs_maze.png
+ - fig2_frontier_size.png
+
+GENERATED TABLES
+ - bfs_dfs_comparison.csv
+ - maze_layout.csv
+
+OUTPUT DIRECTORY: /Users/vansh/Desktop/aisr-lab-500123172/exp03-search/outputs
+
+EXPERIMENT 3 EXECUTION COMPLETED
+====================================================================

@@ -1,0 +1,50 @@
+====================================================================
+EXPERIMENT 5: REINFORCEMENT LEARNING USING Q-LEARNING
+====================================================================
+
+PART A: ENVIRONMENT CONFIGURATION
+Grid dimensions          : 5 x 7
+Start state              : (4, 0)
+Goal state               : (0, 6)
+Pit state                : (2, 6)
+Number of walls          : 5
+Goal reward              : +10
+Pit reward               : -10
+Step reward              : -0.1
+
+PART B: LEARNING PARAMETERS
+Learning rate (alpha)    : 0.5
+Discount factor (gamma)  : 0.95
+Training episodes        : 600
+Maximum steps per episode: 120
+Exploration rates        : [0.05, 0.2, 0.5]
+Random seed              : 42
+
+PART C: TRAINING RESULTS
+------------------------------------------------------------------------------------------
+Epsilon | Mean return (last 100) | Mean steps | Greedy return | Greedy success
+------------------------------------------------------------------------------------------
+   0.05 |                9.0500 |      10.50 |        9.1000 |       100.00%
+   0.20 |                7.6640 |      12.36 |        9.1000 |       100.00%
+   0.50 |                5.8520 |      20.48 |        9.1000 |       100.00%
+
+PART D: INTERPRETATION
+Epsilon controls the probability of selecting a random action.
+A larger epsilon encourages exploration; a smaller epsilon
+favours exploitation of the current Q-values.
+The greedy evaluation measures the learned policy without
+epsilon-based random exploration.
+
+GENERATED FIGURES
+ - fig1_learning_curves.png
+ - fig2_greedy_policy.png
+
+GENERATED TABLES
+ - q_learning_results.csv
+ - episode_returns.csv
+ - greedy_policy.csv
+
+OUTPUT DIRECTORY: /Users/vansh/Desktop/aisr-lab-500123172/exp05-rl/outputs
+
+EXPERIMENT 5 EXECUTION COMPLETED
+====================================================================

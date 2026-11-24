@@ -1,0 +1,58 @@
+====================================================================
+EXPERIMENT 1: SIGNAL ANALYSIS AND PENDULUM DYNAMICS
+====================================================================
+
+PART A: SAMPLING AND FREQUENCY ANALYSIS
+Sampling frequency       : 500.00 Hz
+Sampling interval        : 0.002000 s
+Signal duration          : 2.00 s
+Number of samples        : 1000
+Frequency resolution     : 0.5000 Hz
+Nyquist frequency        : 250.00 Hz
+
+Dominant spectral peaks:
+    5.00 Hz | Amplitude: 1.0000
+   20.00 Hz | Amplitude: 0.5003
+   27.00 Hz | Amplitude: 0.0151
+   38.00 Hz | Amplitude: 0.0142
+   41.00 Hz | Amplitude: 0.0154
+   50.00 Hz | Amplitude: 0.2499
+   85.50 Hz | Amplitude: 0.0157
+  157.00 Hz | Amplitude: 0.0144
+
+PART B: ALIASING
+True signal frequency    : 5.00 Hz
+Sampling frequency       : 8.00 Hz
+Nyquist frequency        : 4.00 Hz
+Observed alias frequency : 3.00 Hz
+
+PART C: DAMPED PENDULUM
+Pendulum length           : 1.00 m
+Gravitational acceleration: 9.81 m/s^2
+Initial angle              : 40 degrees
+Small-angle theoretical T  : 2.00607 s
+
+PART D: PERIOD VERSUS INITIAL AMPLITUDE
+   Initial angle (deg) |    Measured period (s)
+                   5.0 |                2.00600
+                  40.0 |                2.07000
+                  95.0 |                2.41600
+                 175.0 |                5.77400
+
+GENERATED FIGURES
+ - fig1_time_signal.png
+ - fig2_frequency_spectrum.png
+ - fig3_aliasing.png
+ - fig4_pendulum_damping.png
+ - fig5_phase_portraits.png
+ - fig6_period_vs_amplitude.png
+
+GENERATED TABLES
+ - pendulum_periods.csv
+ - sampling_parameters.csv
+ - signal_spectrum.csv
+
+OUTPUT DIRECTORY: /Users/vansh/Desktop/aisr-lab-500123172/exp01-signals/outputs
+
+EXPERIMENT 1 EXECUTION COMPLETED
+====================================================================

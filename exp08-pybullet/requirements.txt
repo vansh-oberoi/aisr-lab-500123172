@@ -1,0 +1,5 @@
+pybullet>=3.2.5
+numpy>=1.23
+matplotlib>=3.6
+scikit-learn>=1.2
+pillow>=9.0

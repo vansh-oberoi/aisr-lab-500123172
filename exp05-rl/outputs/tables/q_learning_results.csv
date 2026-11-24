@@ -1,0 +1,4 @@
+epsilon,episodes,mean_return_last_100,mean_steps_last_100,greedy_evaluation_mean_return,greedy_evaluation_success_rate
+0.05,600,9.049999999999999,10.5,9.1,1.0
+0.2,600,7.664,12.36,9.1,1.0
+0.5,600,5.852,20.48,9.1,1.0

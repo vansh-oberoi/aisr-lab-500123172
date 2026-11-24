@@ -1,0 +1,65 @@
+====================================================================
+EXPERIMENT 6: NEURAL NETWORK AND BACKPROPAGATION
+====================================================================
+
+PART A: DATASET AND NETWORK CONFIGURATION
+Task                     : XOR Boolean classification
+Training samples         : 4
+Input neurons             : 2
+Hidden neurons            : 4
+Output neurons            : 1
+Activation function       : Sigmoid
+Loss function             : Mean Squared Error
+Optimisation              : Gradient Descent
+Training epochs           : 20000
+Random seed               : 1
+
+PART B: LEARNING RATE COMPARISON
+--------------------------------------------------------------------
+Learning rate | Final MSE | Converged below 0.001
+--------------------------------------------------------------------
+         0.05 |  0.013429 | No
+         0.50 |  0.000247 | Yes
+         2.00 |  0.000052 | Yes
+
+PART C: XOR PREDICTIONS
+
+Learning rate = 0.05
+Input       Target   Prediction   Class
+[0, 0]       0        0.097959     0
+[0, 1]       1        0.897950     1
+[1, 0]       1        0.878832     1
+[1, 1]       0        0.137930     0
+
+Learning rate = 0.5
+Input       Target   Prediction   Class
+[0, 0]       0        0.012091     0
+[0, 1]       1        0.983880     1
+[1, 0]       1        0.985661     1
+[1, 1]       0        0.019401     0
+
+Learning rate = 2.0
+Input       Target   Prediction   Class
+[0, 0]       0        0.005295     0
+[0, 1]       1        0.992430     1
+[1, 0]       1        0.993609     1
+[1, 1]       0        0.009023     0
+
+PART D: INTERPRETATION
+The XOR problem is not linearly separable.
+A hidden layer enables the network to learn a nonlinear
+decision boundary through backpropagation.
+Learning rate affects the speed and stability of convergence.
+
+GENERATED FIGURES
+ - fig1_loss_curves.png
+ - fig2_decision_boundary.png
+
+GENERATED TABLES
+ - xor_predictions.csv
+ - training_loss.csv
+
+OUTPUT DIRECTORY: /Users/vansh/Desktop/aisr-lab-500123172/exp06-neural/outputs
+
+EXPERIMENT 6 EXECUTION COMPLETED
+====================================================================

@@ -1,0 +1,5 @@
+robot,label,dof,joint_range_deg,max_reach_m,task_coverage
+kuka_iiwa,KUKA LBR iiwa (7-DOF),7,298.57142857125274,0.9445120825149795,1.0
+franka_panda,Franka Emika Panda (7-DOF),7,282.003278674304,0.944310283400428,1.0
+xarm6,UFactory xArm6 (6-DOF),6,485.16208272847484,0.7592804929000686,1.0
+kuka_mini,"KUKA iiwa scaled to 70% (7-DOF, short reach)",7,298.57142857125274,0.661831147349745,0.4777777777777778

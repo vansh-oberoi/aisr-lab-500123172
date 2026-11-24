@@ -1,0 +1,157 @@
+
+==============================================================================
+$ python experiments/00_check_setup.py 
+==============================================================================
+pybullet build time: Mar 13 2026 19:11:34
+Python      3.11.18 on Darwin arm64
+PyBullet    API 202010061   data: /Users/vansh/aisr-lab-500121170/Experiment 8/.venv/lib/python3.11/site-packages/pybullet_data
+NumPy       2.4.6
+scikit-learn 1.9.1
+
+Robots loaded:
+  kuka_iiwa     7 arm joints, end-effector link 'lbr_iiwa_link_7'
+  franka_panda  7 arm joints, end-effector link 'panda_grasptarget'
+  xarm6         6 arm joints, end-effector link 'link6'
+  kuka_mini     7 arm joints, end-effector link 'lbr_iiwa_link_7'
+
+Snapshot saved to /Users/vansh/aisr-lab-500121170/Experiment 8/results/00_setup_snapshot.png
+
+SETUP OK
+[00_check_setup.py finished in 2 s]
+
+==============================================================================
+$ python experiments/01_explore_embodiments.py --samples 3000
+==============================================================================
+pybullet build time: Mar 13 2026 19:11:34
+
+Embodiment summary (task_coverage = share of task points reachable, gripper down)
+robot         dof  joint_range_deg  max_reach_m  task_coverage
+------------  ---  ---------------  -----------  -------------
+kuka_iiwa     7    298.6            0.945        1.000        
+franka_panda  7    282.0            0.944        1.000        
+xarm6         6    485.2            0.759        1.000        
+kuka_mini     7    298.6            0.662        0.478        
+
+Saved results/01_embodiments.csv, results/01_workspace.png, results/01_robots.png
+[01_explore_embodiments.py finished in 4 s]
+
+==============================================================================
+$ python experiments/02_joint_space_transfer.py --episodes 10
+==============================================================================
+pybullet build time: Mar 13 2026 19:11:34
+
+JOINT-SPACE replay of kuka_iiwa trajectories (10 episodes)
+robot         success_rate  path_dev_mean_cm  path_dev_max_cm  cube_goal_err_cm
+------------  ------------  ----------------  ---------------  ----------------
+kuka_iiwa     1.000         1.422             2.063            0.046           
+franka_panda  0.000         16.7              25.4             29.2            
+xarm6         0.000         27.2              42.3             34.3            
+kuka_mini     0.000         17.6              21.4             34.3            
+
+Saved results/02_joint_space_transfer.csv and results/02_joint_space_paths.png
+[02_joint_space_transfer.py finished in 3 s]
+
+==============================================================================
+$ python experiments/03_task_space_transfer.py --episodes 20
+==============================================================================
+pybullet build time: Mar 13 2026 19:11:34
+
+TASK-SPACE transfer of the same expert (20 episodes per robot)
+robot         success_rate  mean_steps  median_error_cm
+------------  ------------  ----------  ---------------
+kuka_iiwa     1.000         50.5        0.150          
+franka_panda  1.000         46.6        0.132          
+xarm6         1.000         44.9        0.265          
+kuka_mini     0.300         43.8        1.539          
+
+Saved results/03_task_space_transfer.csv and results/03_task_space_paths.png
+[03_task_space_transfer.py finished in 6 s]
+
+==============================================================================
+$ python experiments/04_learn_once_deploy_many.py --demos 60 --episodes 20
+==============================================================================
+pybullet build time: Mar 13 2026 19:11:34
+Collecting 60 noisy-expert demonstrations on kuka_iiwa ...
+  demos on kuka_iiwa    : 60 episodes, expert success 59/60
+  3893 (observation, action) pairs in 2 s
+  trained BC-agnostic on 14 features in 2 s
+  trained BC-proprio  on 21 features in 2 s
+  kuka_iiwa     expert       success 1.00
+  kuka_iiwa     BC-agnostic  success 1.00
+  kuka_iiwa     BC-proprio   success 1.00
+  franka_panda  expert       success 1.00
+  franka_panda  BC-agnostic  success 1.00
+  franka_panda  BC-proprio   success 0.00
+  xarm6         expert       success 1.00
+  xarm6         BC-agnostic  success 1.00
+  xarm6         BC-proprio   success 0.00
+  kuka_mini     expert       success 0.50
+  kuka_mini     BC-agnostic  success 0.55
+  kuka_mini     BC-proprio   success 0.00
+
+Learn on kuka_iiwa, deploy everywhere (20 episodes each)
+robot         policy       success_rate  mean_steps  median_error_cm
+------------  -----------  ------------  ----------  ---------------
+kuka_iiwa     expert       1.000         50.5        0.160          
+kuka_iiwa     BC-agnostic  1.000         51.1        0.152          
+kuka_iiwa     BC-proprio   1.000         51.4        0.176          
+franka_panda  expert       1.000         46.7        0.123          
+franka_panda  BC-agnostic  1.000         50.2        0.935          
+franka_panda  BC-proprio   0.000         nan         32.2           
+xarm6         expert       1.000         44.0        0.286          
+xarm6         BC-agnostic  1.000         50.8        0.663          
+xarm6         BC-proprio   0.000         nan         32.3           
+kuka_mini     expert       0.500         44.5        1.451          
+kuka_mini     BC-agnostic  0.550         50.7        1.745          
+kuka_mini     BC-proprio   0.000         nan         32.3           
+
+Saved results/04_learn_once_deploy_many_kuka_iiwa.csv/.png and results/models/
+[04_learn_once_deploy_many.py finished in 33 s]
+
+==============================================================================
+$ python experiments/05_multi_embodiment.py --demos 60 --episodes 20
+==============================================================================
+pybullet build time: Mar 13 2026 19:11:34
+  test kuka_iiwa     | single (franka_panda)                    | agnostic success 1.00
+  test kuka_iiwa     | single (franka_panda)                    | proprio  success 0.00
+  test kuka_iiwa     | multi (franka_panda + xarm6)             | agnostic success 1.00
+  test kuka_iiwa     | multi (franka_panda + xarm6)             | proprio  success 0.00
+  test franka_panda  | single (kuka_iiwa)                       | agnostic success 1.00
+  test franka_panda  | single (kuka_iiwa)                       | proprio  success 0.00
+  test franka_panda  | multi (kuka_iiwa + xarm6)                | agnostic success 1.00
+  test franka_panda  | multi (kuka_iiwa + xarm6)                | proprio  success 0.00
+  test xarm6         | single (kuka_iiwa)                       | agnostic success 1.00
+  test xarm6         | single (kuka_iiwa)                       | proprio  success 0.00
+  test xarm6         | multi (kuka_iiwa + franka_panda)         | agnostic success 1.00
+  test xarm6         | multi (kuka_iiwa + franka_panda)         | proprio  success 0.00
+
+Leave-one-embodiment-out
+held_out      training  trained_on              obs       success_rate  median_error_cm
+------------  --------  ----------------------  --------  ------------  ---------------
+kuka_iiwa     single    franka_panda            agnostic  1.000         0.114          
+kuka_iiwa     single    franka_panda            proprio   0.000         32.4           
+kuka_iiwa     multi     franka_panda+xarm6      agnostic  1.000         0.536          
+kuka_iiwa     multi     franka_panda+xarm6      proprio   0.000         32.4           
+franka_panda  single    kuka_iiwa               agnostic  1.000         0.859          
+franka_panda  single    kuka_iiwa               proprio   0.000         31.8           
+franka_panda  multi     kuka_iiwa+xarm6         agnostic  1.000         0.221          
+franka_panda  multi     kuka_iiwa+xarm6         proprio   0.000         31.7           
+xarm6         single    kuka_iiwa               agnostic  1.000         0.651          
+xarm6         single    kuka_iiwa               proprio   0.000         32.4           
+xarm6         multi     kuka_iiwa+franka_panda  agnostic  1.000         0.240          
+xarm6         multi     kuka_iiwa+franka_panda  proprio   0.000         32.4           
+
+Saved results/05_multi_embodiment.csv and results/05_multi_embodiment.png
+[05_multi_embodiment.py finished in 71 s]
+
+==============================================================================
+$ python experiments/06_side_by_side_demo.py --gif --episodes 3
+==============================================================================
+pybullet build time: Mar 13 2026 19:11:34
+episode 0: kuka_iiwa=OK, franka_panda=OK, xarm6=OK, kuka_mini=OK
+episode 1: kuka_iiwa=OK, franka_panda=OK, xarm6=OK, kuka_mini=fail
+episode 2: kuka_iiwa=OK, franka_panda=OK, xarm6=OK, kuka_mini=OK
+Saved /Users/vansh/aisr-lab-500121170/Experiment 8/results/06_side_by_side.gif
+[06_side_by_side_demo.py finished in 15 s]
+
+All experiments done. Open the results/ folder.

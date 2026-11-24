@@ -1,0 +1,11 @@
+Parameter,Value,Unit
+Sampling frequency,500.0,Hz
+Sampling interval,0.002,s
+Duration,2.0,s
+Number of samples,1000,samples
+Frequency resolution,0.5,Hz
+Nyquist frequency,250.0,Hz
+Aliasing sampling frequency,8.0,Hz
+True aliasing signal frequency,5.0,Hz
+Observed alias frequency,3.0,Hz
+Small-angle pendulum period,2.0060666807106475,s
